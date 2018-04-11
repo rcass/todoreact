@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-// import { defaultProps } from 'prop-types';
-import ReactDOM from "react-dom";
 import styles from "./styles";
 
 import ToDoListHeader from './todolistheader';
@@ -19,6 +17,7 @@ class ToDoListApp extends Component {
     };
     this.toggleComplete = this.toggleComplete.bind(this);
     this.removeTodo = this.removeTodo.bind(this);
+    this.clearCompleted = this.clearCompleted.bind(this);
   }
 
   toggleComplete(item){
@@ -28,12 +27,16 @@ class ToDoListApp extends Component {
       }
       return todo;
     });
-
     this.setState({ todos });
   }
 
   removeTodo(item){
     let todos = this.state.todos.filter(todo => todo.id !== item.id)
+    this.setState({ todos });
+  }
+
+  clearCompleted(){
+    let todos = this.state.todos.filter(todo => !todo.completed);
     this.setState({ todos });
   }
 
@@ -52,7 +55,9 @@ class ToDoListApp extends Component {
         ):(
           "Nothing To Do!"
         )}
-        <ToDoListFooter toDoCount={todos.length}/>
+        <ToDoListFooter
+          toDoCount={todos.length}
+          clearCompleted={this.clearCompleted}/>
       </div>
     );
   }

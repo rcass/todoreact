@@ -1,7 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 // import { defaultProps } from 'prop-types';
 import ReactDOM from "react-dom";
-
 
 import ToDoListApp from './todolistapp';
 

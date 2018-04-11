@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import ToDoItem from "./todoitem";
 import styles from "./styles.js";
 import PropTypes from 'prop-types';
@@ -15,6 +15,7 @@ const ToDoList = props => {
 
 ToDoList.propTypes = {
   toDoList: PropTypes.array.isRequired
+  // removeTodo: PropTypes.number.isRequired
 };
 
 export default ToDoList;

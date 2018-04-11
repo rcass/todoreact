@@ -1,21 +1,38 @@
-import React, { Component } from "react";
+import React from "react";
 import styles from "./styles.js";
 import PropTypes from 'prop-types';
 
-class ToDoListFooter extends Component {
+const ToDoListFooter = ({ toDoCount, clearCompleted }) => {
+  let text = "";
+  switch(toDoCount){
+    case 0 : {
+      text =  "Nothing to do, seriously, nothing to do!"
+      break;
+    }
+    case 1 : {
+      text = "todo";
+      break;
+    }
+    default: {
+      text = "Too much to not do?"
+    }
+  }
 
-  render(){
     return (
       <div style={styles.footer}>
-        <p>{(this.props.toDoCount > 1 || this.props.toDoCount === 0) ? 'todos':'todo'}</p>
-        <button type="button">Clear Completed</button>
+        <p>{toDoCount} {toDoCount > 1 ? "todos" : text }</p>
+        <button
+          type="button"
+          onClick={clearCompleted}
+        >Clear Completed</button>
       </div>
     );
-  }
+
 }
 
 ToDoListFooter.propTypes = {
   toDoCount: PropTypes.number.isRequired
+  // clearCompleted: PropTypes.bool.isRequired
 };
 
 export default ToDoListFooter;
