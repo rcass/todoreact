@@ -3,17 +3,14 @@ import ToDoItem from "./todoitem";
 import styles from "./styles.js";
 import PropTypes from 'prop-types';
 
-class ToDoList extends Component {
-  render(){
-
+const ToDoList = props => {
     return (
       <ul style={styles.ul}>
-        {this.props.toDoList.map((item, i) => {
-            return <ToDoItem key={i} item={item} />;
+        {props.toDoList.map((item) => {
+            return <ToDoItem key={item.id} item={item} toggleComplete={props.toggleComplete} removeTodo={props.removeTodo}/>;
         })}
       </ul>
     );
-  }
 }
 
 ToDoList.propTypes = {

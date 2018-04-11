@@ -3,6 +3,7 @@ import styles from "./styles.js";
 import PropTypes from 'prop-types';
 
 class ToDoListFooter extends Component {
+
   render(){
     return (
       <div style={styles.footer}>
