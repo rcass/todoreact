@@ -13,11 +13,14 @@ class ToDoListApp extends Component {
       todos: [
         {id: 0, todo: "Learn React", completed: false},
         {id: 1, todo: "Learn Redux", completed: false}
-      ]
+      ],
+      inputText: "",
+      lastId: 1
     };
     this.toggleComplete = this.toggleComplete.bind(this);
     this.removeTodo = this.removeTodo.bind(this);
     this.clearCompleted = this.clearCompleted.bind(this);
+    this.handleInput = this.handleInput.bind(this);
   }
 
   toggleComplete(item){
@@ -40,13 +43,17 @@ class ToDoListApp extends Component {
     this.setState({ todos });
   }
 
+  handleInput(event){
+    console.log(event.target.value);
+  }
+
 
   render() {
     const { todos } = this.state;
     return (
       <div style={styles}>
         <ToDoListHeader />
-        <ToDoInput />
+        <ToDoInput handleInput={this.handleInput}/>
         {(todos.length > 0) ? (
           <ToDoList
             toDoList={todos}
