@@ -11,11 +11,12 @@ const ToDoList = props => {
         })}
       </ul>
     );
-}
+};
 
 ToDoList.propTypes = {
-  toDoList: PropTypes.array.isRequired
-  // removeTodo: PropTypes.number.isRequired
+  toDoList: PropTypes.array.isRequired,
+  toggleComplete: PropTypes.func.isRequired,
+  removeTodo: PropTypes.func.isRequired
 };
 
 export default ToDoList;

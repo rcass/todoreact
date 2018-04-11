@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import styles from "./styles.js";
 
 class ToDoItem extends Component {
@@ -8,8 +9,8 @@ class ToDoItem extends Component {
         <li style={styles.li}>
           <span>{item.todo}</span>
           <input
-            type="checkbox" 
-            id={item.id} 
+            type="checkbox"
+            id={item.id}
             checked={item.complete}
             onClick={() => toggleComplete(item)}
           />
@@ -20,6 +21,12 @@ class ToDoItem extends Component {
         </li>
     );
   }
-}
+};
+
+ToDoItem.propTypes = {
+  item: PropTypes.object.isRequired,
+  toggleComplete: PropTypes.func.isRequired,
+  removeTodo: PropTypes.func.isRequired
+};
 
 export default ToDoItem;

@@ -18,21 +18,20 @@ const ToDoListFooter = ({ toDoCount, clearCompleted }) => {
     }
   }
 
-    return (
-      <div style={styles.footer}>
-        <p>{toDoCount} {toDoCount > 1 ? "todos" : text }</p>
-        <button
-          type="button"
-          onClick={clearCompleted}
-        >Clear Completed</button>
-      </div>
-    );
-
+  return (
+    <div style={styles.footer}>
+      <p>{toDoCount} {toDoCount > 1 ? "todos" : text }</p>
+      <button
+        type="button"
+        onClick={clearCompleted}
+      >Clear Completed</button>
+    </div>
+  );
 }
 
 ToDoListFooter.propTypes = {
-  toDoCount: PropTypes.number.isRequired
-  // clearCompleted: PropTypes.bool.isRequired
+  toDoCount: PropTypes.number.isRequired,
+  clearCompleted: PropTypes.func.isRequired
 };
 
 export default ToDoListFooter;
