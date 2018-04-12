@@ -21,6 +21,7 @@ class ToDoListApp extends Component {
     this.removeTodo = this.removeTodo.bind(this);
     this.clearCompleted = this.clearCompleted.bind(this);
     this.handleInput = this.handleInput.bind(this);
+    this.addTodo = this.addTodo.bind(this);
   }
 
   toggleComplete(item){
@@ -44,7 +45,23 @@ class ToDoListApp extends Component {
   }
 
   handleInput(event){
-    console.log(event.target.value);
+    this.setState({ inputText: event.target.value });
+  }
+
+  addTodo(event){
+    event.preventDefault();
+    let lastId = this.state.lastId;
+
+    if(this.state.inputText){
+      const newId = lastId + 1;
+      const newTodo = {
+        id: newId,
+        todo: this.state.inputText,
+        completed: false
+      };
+      let todos = this.state.todos.concat(newTodo);
+      this.setState({ todos, lastId: newId });
+    }
   }
 
 
@@ -53,7 +70,7 @@ class ToDoListApp extends Component {
     return (
       <div style={styles}>
         <ToDoListHeader />
-        <ToDoInput handleInput={this.handleInput}/>
+        <ToDoInput handleInput={this.handleInput} addTodo={this.addTodo} />
         {(todos.length > 0) ? (
           <ToDoList
             toDoList={todos}

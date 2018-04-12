@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 
 class ToDoInput extends Component {
   render() {
-    const { handleInput } = this.props;
+    const { handleInput, addTodo } = this.props;
     return (
       <div className="add-todo">
-        <form>
-          <input type="text" onChange={(event) => handleInput(event)}/>
+        <form onSubmit={event => addTodo(event)}>
+          <input type="text" onChange={(event) => handleInput(event)}  />
           <span>(enter to add)</span>
         </form>
       </div>
@@ -16,7 +16,8 @@ class ToDoInput extends Component {
 }
 
 ToDoInput.propTypes = {
-  handleInput: PropTypes.func.isRequired
+  handleInput: PropTypes.func.isRequired,
+  addTodo: PropTypes.func.isRequired
 };
 
 export default ToDoInput;
