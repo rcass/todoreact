@@ -1,3 +1,10 @@
+# To Do App - React Edition
+
+Just your normal To Do app written in React.
+Full of those typical features: add item, mark as complete, delete item, total item counter, and clear complete.
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
