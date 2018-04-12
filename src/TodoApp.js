@@ -68,18 +68,19 @@ class TodoApp extends Component {
     return (
       <div className="todo-list">
         <TodoHeader/>
-        <TodoInput handleInput={this.handleInput} addTodo={this.addTodo} />
-        {(todos.length > 0) ? (
-          <TodoList
-            todoList={todos}
-            toggleComplete={this.toggleComplete}
-            removeTodo={this.removeTodo} />
-        ):(
-          "Nothing To Do!"
-        )}
+        <TodoInput
+          handleInput={this.handleInput}
+          addTodo={this.addTodo}
+        />
+        <TodoList
+          todoList={todos}
+          toggleComplete={this.toggleComplete}
+          removeTodo={this.removeTodo}
+        />
         <TodoFooter
           todoCount={todos.length}
-          clearCompleted={this.clearCompleted}/>
+          clearCompleted={this.clearCompleted}
+        />
       </div>
     );
   }

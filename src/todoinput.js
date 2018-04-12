@@ -6,7 +6,7 @@ class TodoInput extends Component {
     const { handleInput, addTodo } = this.props;
     return (
       <div className="add-todo">
-        <form onSubmit={event => addTodo(event)}>
+        <form name="addTodo" onSubmit={event => addTodo(event)}>
           <input type="text" onChange={(event) => handleInput(event)}  />
           <span>(enter to add)</span>
         </form>

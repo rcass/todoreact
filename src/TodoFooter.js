@@ -19,7 +19,7 @@ const TodoFooter = ({ todoCount, clearCompleted }) => {
 
   return (
     <div className="todo-admin">
-      <p>{todoCount} {todoCount > 1 ? "todos" : text }</p>
+      {todoCount} {todoCount > 1 ? "todos" : text }
       <button
         type="button"
         onClick={clearCompleted}
