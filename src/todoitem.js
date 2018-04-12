@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
-import styles from "./styles.js";
+import './App.css';
 
-class ToDoItem extends Component {
+class TodoItem extends Component {
   render(){
     const { item, toggleComplete, removeTodo } = this.props;
     return (
-        <li style={styles.li}>
-          <span>{item.todo}</span>
+        <li>
+          {item.todo}
           <input
             type="checkbox"
             id={item.id}
@@ -23,10 +23,10 @@ class ToDoItem extends Component {
   }
 };
 
-ToDoItem.propTypes = {
+TodoItem.propTypes = {
   item: PropTypes.object.isRequired,
   toggleComplete: PropTypes.func.isRequired,
   removeTodo: PropTypes.func.isRequired
 };
 
-export default ToDoItem;
+export default TodoItem;

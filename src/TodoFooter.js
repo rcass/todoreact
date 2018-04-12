@@ -1,10 +1,9 @@
 import React from "react";
-import styles from "./styles.js";
 import PropTypes from 'prop-types';
 
-const ToDoListFooter = ({ toDoCount, clearCompleted }) => {
+const TodoFooter = ({ todoCount, clearCompleted }) => {
   let text = "";
-  switch(toDoCount){
+  switch(todoCount){
     case 0 : {
       text =  "Nothing to do, seriously, nothing to do!"
       break;
@@ -19,8 +18,8 @@ const ToDoListFooter = ({ toDoCount, clearCompleted }) => {
   }
 
   return (
-    <div style={styles.footer}>
-      <p>{toDoCount} {toDoCount > 1 ? "todos" : text }</p>
+    <div className="todo-admin">
+      <p>{todoCount} {todoCount > 1 ? "todos" : text }</p>
       <button
         type="button"
         onClick={clearCompleted}
@@ -29,9 +28,9 @@ const ToDoListFooter = ({ toDoCount, clearCompleted }) => {
   );
 }
 
-ToDoListFooter.propTypes = {
-  toDoCount: PropTypes.number.isRequired,
+TodoFooter.propTypes = {
+  todoCount: PropTypes.number.isRequired,
   clearCompleted: PropTypes.func.isRequired
 };
 
-export default ToDoListFooter;
+export default TodoFooter;

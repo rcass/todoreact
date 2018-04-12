@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import styles from "./styles";
+import './App.css';
 
-import ToDoListHeader from './todolistheader';
-import ToDoInput from './todoinput';
-import ToDoList from './todolist';
-import ToDoListFooter from './todolistfooter';
+import TodoHeader from './TodoHeader';
+import TodoInput from './TodoInput';
+import TodoList from './TodoList';
+import TodoFooter from './TodoFooter';
 
-class ToDoListApp extends Component {
+class TodoApp extends Component {
   constructor(){
     super();
     this.state = {
@@ -51,7 +51,6 @@ class ToDoListApp extends Component {
   addTodo(event){
     event.preventDefault();
     let lastId = this.state.lastId;
-
     if(this.state.inputText){
       const newId = lastId + 1;
       const newTodo = {
@@ -64,27 +63,26 @@ class ToDoListApp extends Component {
     }
   }
 
-
   render() {
     const { todos } = this.state;
     return (
-      <div style={styles}>
-        <ToDoListHeader />
-        <ToDoInput handleInput={this.handleInput} addTodo={this.addTodo} />
+      <div className="todo-list">
+        <TodoHeader/>
+        <TodoInput handleInput={this.handleInput} addTodo={this.addTodo} />
         {(todos.length > 0) ? (
-          <ToDoList
-            toDoList={todos}
+          <TodoList
+            todoList={todos}
             toggleComplete={this.toggleComplete}
             removeTodo={this.removeTodo} />
         ):(
           "Nothing To Do!"
         )}
-        <ToDoListFooter
-          toDoCount={todos.length}
+        <TodoFooter
+          todoCount={todos.length}
           clearCompleted={this.clearCompleted}/>
       </div>
     );
   }
-} // ToDoListApp End
+}
 
-export default ToDoListApp;
+export default TodoApp;

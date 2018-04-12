@@ -1,22 +1,23 @@
 import React from "react";
-import ToDoItem from "./todoitem";
-import styles from "./styles.js";
 import PropTypes from 'prop-types';
+import TodoItem from "./TodoItem";
+import './App.css';
 
-const ToDoList = props => {
+
+const TodoList = props => {
     return (
-      <ul style={styles.ul}>
-        {props.toDoList.map((item) => {
-            return <ToDoItem key={item.id} item={item} toggleComplete={props.toggleComplete} removeTodo={props.removeTodo}/>;
+      <ul>
+        {props.todoList.map((item) => {
+            return <TodoItem key={item.id} item={item} toggleComplete={props.toggleComplete} removeTodo={props.removeTodo}/>;
         })}
       </ul>
     );
 };
 
-ToDoList.propTypes = {
-  toDoList: PropTypes.array.isRequired,
+TodoList.propTypes = {
+  todoList: PropTypes.array.isRequired,
   toggleComplete: PropTypes.func.isRequired,
   removeTodo: PropTypes.func.isRequired
 };
 
-export default ToDoList;
+export default TodoList;

@@ -1,8 +1,7 @@
 import React from "react";
-// import { defaultProps } from 'prop-types';
 import ReactDOM from "react-dom";
 
-import ToDoListApp from './todolistapp';
+import TodoApp from './TodoApp';
 
 
-ReactDOM.render(<ToDoListApp />, document.getElementById("root"));
+ReactDOM.render(<TodoApp />, document.getElementById("root"));

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class ToDoInput extends Component {
+class TodoInput extends Component {
   render() {
     const { handleInput, addTodo } = this.props;
     return (
@@ -15,9 +15,9 @@ class ToDoInput extends Component {
   }
 }
 
-ToDoInput.propTypes = {
+TodoInput.propTypes = {
   handleInput: PropTypes.func.isRequired,
   addTodo: PropTypes.func.isRequired
 };
 
-export default ToDoInput;
+export default TodoInput;
